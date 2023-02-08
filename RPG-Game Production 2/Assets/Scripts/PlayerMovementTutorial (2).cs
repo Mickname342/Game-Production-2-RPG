@@ -20,6 +20,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode interactKey = KeyCode.F;
 
     [Header("Ground Check")]
     public float playerHeight;
