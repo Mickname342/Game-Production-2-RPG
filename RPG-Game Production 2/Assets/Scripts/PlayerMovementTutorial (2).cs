@@ -12,8 +12,9 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public float jumpForce;
     public float jumpCooldown;
+    public float hitCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    public bool readyToJump;
 
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
@@ -25,7 +26,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
+    public bool hit;
 
     public Transform orientation;
 
@@ -44,6 +46,15 @@ public class PlayerMovementTutorial : MonoBehaviour
         readyToJump = true;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            hit = true;
+            hitCooldown = 3;
+        }
+    }
+
     private void Update()
     {
         // ground check
@@ -57,6 +68,15 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if(hitCooldown >= 0)
+        {
+            hitCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            hit = false;
+        }
     }
 
     private void FixedUpdate()
@@ -66,8 +86,16 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if(hit == false)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+        }
+        if (hit == true)
+        {
+            horizontalInput = Input.GetAxisRaw("Anti Horizontal");
+            verticalInput = Input.GetAxisRaw("Anti Vertical");
+        }
 
         // when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
