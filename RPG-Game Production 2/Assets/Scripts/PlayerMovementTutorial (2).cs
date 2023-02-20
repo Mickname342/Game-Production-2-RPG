@@ -30,6 +30,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public bool hit;
 
     public Transform orientation;
+    public Animator animator;
 
     float horizontalInput;
     float verticalInput;
@@ -59,6 +60,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        //Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
 
         MyInput();
         SpeedControl();
@@ -77,6 +79,12 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             hit = false;
         }
+
+        //Change animation based on input
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            animator.SetBool("IsMoving", true);
+        } else { animator.SetBool("IsMoving", false); }
     }
 
     private void FixedUpdate()
