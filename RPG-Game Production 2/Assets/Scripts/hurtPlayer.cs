@@ -16,7 +16,7 @@ public class hurtPlayer : MonoBehaviour
 
     void Update()
     {
-        if (slider.value <= slider.minValue)
+        /*if (slider.value <= slider.minValue)
         {
             fillImage.enabled = false;
         }
@@ -28,7 +28,9 @@ public class hurtPlayer : MonoBehaviour
 
         float fillValue = Health.currentHealth / Health.maxHealth;
         slider.value = fillValue;
-       // slider.value = Health.currentHealth / Health.maxHealth;
+       // slider.value = Health.currentHealth / Health.maxHealth; */
+
+        slider.value = Health.currentHealth;
     }
 
 }
