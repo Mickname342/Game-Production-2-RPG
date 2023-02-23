@@ -30,6 +30,7 @@ public class CannonBall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<Health>().currentHealth -= 2;
             Destroy(gameObject);
         }
     }
