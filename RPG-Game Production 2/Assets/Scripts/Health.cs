@@ -16,7 +16,10 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Heal(2);
+        }
     }
 
     void takeDamage(int amount)
@@ -43,9 +46,11 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            //Bounce the player when making contact with enemy
             Vector3 direction = collision.gameObject.transform.position - gameObject.transform.position;
-            takeDamage(3);
             gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * bounce, ForceMode.Impulse);
+
+            takeDamage(3);
         }
     }
 }
