@@ -30,7 +30,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public bool hit;
 
     public Transform orientation;
-    public Animator animator;
+    //public Animator animator;
 
     float horizontalInput;
     float verticalInput;
@@ -81,10 +81,10 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //Change animation based on input
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        /*if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             animator.SetBool("IsMoving", true);
-        } else { animator.SetBool("IsMoving", false); }
+        } else { animator.SetBool("IsMoving", false); }*/
     }
 
     private void FixedUpdate()
