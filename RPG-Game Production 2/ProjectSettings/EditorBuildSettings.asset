@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ben's Scene.unity
+    guid: a9fe659a62bf47142abfaa877cb371b3
+  - enabled: 1
+    path: Assets/Scenes/Pro.unity
+    guid: 8fb75fa0be4466749b7b193d23bff29a
   m_configObjects: {}
