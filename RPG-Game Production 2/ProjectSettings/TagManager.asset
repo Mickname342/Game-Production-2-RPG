@@ -8,6 +8,8 @@ TagManager:
   - Ball
   - Enemy
   - Ground
+  - Mesh
+  - SprayPaint
   layers:
   - Default
   - TransparentFX

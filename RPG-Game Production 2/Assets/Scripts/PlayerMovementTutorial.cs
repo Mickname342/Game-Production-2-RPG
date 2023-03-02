@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
@@ -55,6 +52,10 @@ public class PlayerMovementTutorial : MonoBehaviour
             hit = true;
             hitCooldown = 3;
         }
+        if (collision.gameObject.CompareTag("Mesh"))
+        {
+            print("Collided with mesh");
+        }
     }
 
     private void Update()
@@ -72,7 +73,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         else
             rb.drag = 0;
 
-        if(hitCooldown >= 0)
+        if (hitCooldown >= 0)
         {
             hitCooldown -= Time.deltaTime;
         }
@@ -85,7 +86,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             animator.SetBool("IsMoving", true);
-        } else { animator.SetBool("IsMoving", false); }
+        }
+        else { animator.SetBool("IsMoving", false); }
     }
 
     private void FixedUpdate()
@@ -95,7 +97,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void MyInput()
     {
-        if(hit == false)
+        if (hit == false)
         {
             horizontalInput = Input.GetAxisRaw("Horizontal");
             verticalInput = Input.GetAxisRaw("Vertical");
@@ -107,7 +109,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
 
@@ -123,11 +125,11 @@ public class PlayerMovementTutorial : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
+        if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
-        else if(!grounded)
+        else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
@@ -136,7 +138,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
