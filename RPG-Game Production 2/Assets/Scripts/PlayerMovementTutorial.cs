@@ -87,7 +87,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
         }
-        else { animator.SetBool("IsMoving", false); }
+        else { animator.SetBool("IsMoving", false); }+
     }
 
     private void FixedUpdate()
