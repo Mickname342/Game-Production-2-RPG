@@ -8,6 +8,8 @@ public class SwordSwing : MonoBehaviour
 
     public Collider swordCol;
 
+    public GameObject shield;
+
     public float coolDown;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class SwordSwing : MonoBehaviour
             swordCol.enabled = false;
         }
 
-        if (Input.GetButtonDown("Fire1") && coolDown <= 0)
+        if (Input.GetButtonDown("Fire1") && coolDown <= 0 && shield.GetComponent<ShieldUp>().shielding == false)
         {
             Swing();
             coolDown = 1;
@@ -42,4 +44,6 @@ public class SwordSwing : MonoBehaviour
             anim.Play("sword Swing");
         }
     }
+
+
 }

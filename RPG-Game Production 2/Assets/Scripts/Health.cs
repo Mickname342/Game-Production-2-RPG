@@ -48,14 +48,19 @@ public class Health : MonoBehaviour
             Vector3 direction = collision.gameObject.transform.position - gameObject.transform.position;
             gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * bounce, ForceMode.Impulse);
 
-            takeDamage(3);
+            //takeDamage(3);
         }
 
-        if (collision.gameObject.CompareTag("knife"))
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Dagger"))
         {
-            takeDamage(3);
+            takeDamage(1);
             Debug.Log("Stabbed");
         }
     }
+    
 }
 

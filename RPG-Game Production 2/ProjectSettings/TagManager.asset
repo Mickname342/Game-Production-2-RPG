@@ -3,28 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Item
-  - Ball
-  - Enemy
-  - Ground
-<<<<<<< Updated upstream
-  - Mesh
-  - SprayPaint
-=======
-  - sword
-  - Shield
-  - Dagger
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - ItemMask
+  - 
   - Water
   - UI
-  - Ground
-  - Player
+  - 
+  - 
   - 
   - 
   - 
