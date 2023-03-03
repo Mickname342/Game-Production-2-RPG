@@ -50,6 +50,12 @@ public class Health : MonoBehaviour
 
             takeDamage(3);
         }
+
+        if (collision.gameObject.CompareTag("knife"))
+        {
+            takeDamage(3);
+            Debug.Log("Stabbed");
+        }
     }
 }
 

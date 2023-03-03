@@ -29,6 +29,10 @@ public class CannonBall : MonoBehaviour
         {
             collision.gameObject.GetComponent<Health>().currentHealth -= 2;
             Destroy(gameObject);
+        }     
+        if (collision.gameObject.tag == "Shield")
+        {
+            Debug.Log("Hit shield");
         }
     }
 }

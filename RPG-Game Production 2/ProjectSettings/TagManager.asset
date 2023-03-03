@@ -8,8 +8,14 @@ TagManager:
   - Ball
   - Enemy
   - Ground
+<<<<<<< Updated upstream
   - Mesh
   - SprayPaint
+=======
+  - sword
+  - Shield
+  - Dagger
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
