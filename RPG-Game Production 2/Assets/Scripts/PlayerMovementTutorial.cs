@@ -4,6 +4,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float runSpeed;
 
     public float groundDrag;
 
@@ -19,7 +20,10 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode interactKey = KeyCode.F;
-    public KeyCode drawKey = KeyCode.Mouse1;
+    public KeyCode drawKey = KeyCode.R;
+    public KeyCode runKey = KeyCode.LeftShift;
+    public KeyCode attackKey = KeyCode.Mouse0;
+    public KeyCode blockKey = KeyCode.Mouse1;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -30,12 +34,20 @@ public class PlayerMovementTutorial : MonoBehaviour
     public Transform orientation;
     public Animator animator;
 
+    public Collider swordCollider;
+    public Collider shieldCollider;
+
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
 
     Rigidbody rb;
+
+    private bool JumpPressed = false;
+    private bool IsFalling = false;
+    private bool ApproachingGround = false;
+    private float blockTimer = 0f;
 
     private void Start()
     {
@@ -61,8 +73,15 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-        //Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
+        grounded = Physics.Raycast(transform.position, Vector3.down, 0.015f, whatIsGround);
+        ApproachingGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
+        Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
+        //Control animations depending on if grounded
+        if (grounded)
+        {
+            animator.SetBool("IsGrounded", true);
+        } else { animator.SetBool("IsGrounded", false); }
+        
 
         MyInput();
         SpeedControl();
@@ -82,12 +101,68 @@ public class PlayerMovementTutorial : MonoBehaviour
             hit = false;
         }
 
+        if (Input.GetKey(runKey))
+        {
+            sprintSpeed = runSpeed;
+            animator.SetBool("IsRunning", true);
+        } else 
+        {
+            sprintSpeed = 1f;
+            animator.SetBool("IsRunning", false);
+        }
+
         //Change animation based on input
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             animator.SetBool("IsMoving", true);
         }
         else { animator.SetBool("IsMoving", false); }
+
+        if (JumpPressed)
+        {
+            animator.SetBool("JumpPressed", true);
+        } else { animator.SetBool("JumpPressed", false); }
+
+        if(rb.velocity.y <= -0.01f)
+        {
+            IsFalling = true;
+        } else { IsFalling = false; }
+
+        if (IsFalling)
+        {
+            animator.SetBool("IsFalling", true);
+        }
+        else { animator.SetBool("IsFalling", false); }
+
+        if (ApproachingGround)
+        {
+            animator.SetBool("ApproachingGround", true);
+        }
+        else { animator.SetBool("ApproachingGround", false); }
+
+        if (Input.GetKeyDown(attackKey))
+        {
+            Attack();
+        }
+        if (grounded)
+        {
+            if (Input.GetKey(blockKey))
+            {
+                blockTimer += Time.deltaTime;
+                Block();
+                if (blockTimer >= 0.1f)
+                {
+                    animator.SetBool("BlockPressed", false);
+                }
+            }
+            else
+            {
+                blockTimer = 0f;
+                animator.SetBool("BlockPressed", false);
+                animator.SetBool("IsBlocking", false);
+                shieldCollider.enabled = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -117,6 +192,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        else { JumpPressed = false; }
     }
 
     private void MovePlayer()
@@ -126,11 +202,11 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         // on ground
         if (grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * sprintSpeed, ForceMode.Force);
 
         // in air
         else if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier * sprintSpeed, ForceMode.Force);
     }
 
     private void SpeedControl()
@@ -151,9 +227,25 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        JumpPressed = true;
     }
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void Attack()
+    {
+        swordCollider.enabled = true;
+        animator.SetBool("Attacking", true);
+    }
+
+    private void Block()
+    {
+        shieldCollider.enabled = true;
+        animator.SetBool("IsBlocking", true);
+        animator.SetBool("BlockPressed", true);
+        animator.SetLayerWeight(1, 0.7f);
     }
 }

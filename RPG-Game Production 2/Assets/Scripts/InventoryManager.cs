@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InevntoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    public static InevntoryManager Instance;
+    public static InventoryManager Instance;
     public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;

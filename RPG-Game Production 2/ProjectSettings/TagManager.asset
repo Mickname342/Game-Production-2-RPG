@@ -9,6 +9,9 @@ TagManager:
   - Ground
   - SprayPaint
   - Mesh
+  - Dagger
+  - Shield
+  - sword
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Item
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 

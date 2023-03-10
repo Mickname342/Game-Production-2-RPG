@@ -11,7 +11,7 @@ public class inventoryItemController : MonoBehaviour
 
     public void RemoveItem()
     {
-        InevntoryManager.Instance.Remove(item);
+        InventoryManager.Instance.Remove(item);
 
         Destroy(gameObject);
     }
