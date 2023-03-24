@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float groundDrag;
 
     public float jumpForce;
+    public float dodgeForce;
     public float jumpCooldown;
     public float hitCooldown;
     public float airMultiplier;
@@ -49,6 +51,11 @@ public class PlayerMovementTutorial : MonoBehaviour
     private bool ApproachingGround = false;
     private float blockTimer = 0f;
 
+    [Header("enemy look at")]
+    public Transform enemy;
+    public Transform body;
+    public bool lookingAt;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -81,8 +88,13 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             animator.SetBool("IsGrounded", true);
         } else { animator.SetBool("IsGrounded", false); }
-        
 
+        if (Input.GetKeyDown("q"))
+        {
+            lookingAt = !lookingAt;
+        }
+
+        LookAt();
         MyInput();
         SpeedControl();
 
@@ -193,6 +205,11 @@ public class PlayerMovementTutorial : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
         else { JumpPressed = false; }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.AddForce(transform.forward * dodgeForce * -1, ForceMode.Impulse);
+        }
     }
 
     private void MovePlayer()
@@ -233,6 +250,18 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void LookAt()
+    {
+        if(lookingAt == true)
+        {
+            transform.LookAt(enemy.transform.position);
+        }
+        else
+        {
+
+        }
     }
 
     private void Attack()
