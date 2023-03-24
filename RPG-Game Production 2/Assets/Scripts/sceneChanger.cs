@@ -22,6 +22,7 @@ public class sceneChanger : MonoBehaviour
 
     public void tryAgain()
     {
+        SceneManager.LoadScene(1);
         Debug.Log("Load Previous scene!!!!!");
     }
     public void buttonSound()

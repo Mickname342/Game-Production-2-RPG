@@ -10,6 +10,7 @@ public class EnemyHit : MonoBehaviour
     public float swordHit;
     public float coolDown;
     private GameObject knife;
+    public GameObject enemyDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class EnemyHit : MonoBehaviour
             knife.AddComponent<BoxCollider>();
             knife.AddComponent<Rigidbody>();
             knife.transform.SetParent(null);
+            GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0,3,0), transform.rotation);
         }
     }
 

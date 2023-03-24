@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Amelia's scenes/Amelia's UI Scene.unity
     guid: 97857f135d9fec745b19eac582c08fc9
+  - enabled: 1
+    path: Assets/Scenes/Amelia's scenes/tryAgainScreen Scene.unity
+    guid: 7a411305db15ebc4981b1d6f1b0de35c
   m_configObjects: {}
