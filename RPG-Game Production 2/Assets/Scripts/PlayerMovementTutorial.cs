@@ -80,7 +80,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, 0.015f, whatIsGround);
+        grounded = Physics.Raycast(GameObject.FindWithTag("PlayerModel").transform.position, Vector3.down, 0.15f, whatIsGround);
         ApproachingGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
         Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
         //Control animations depending on if grounded
