@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Collider DagCol;
     void Start()
     {
-        anim= GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         //get the component reference
         navAgent = GetComponent<NavMeshAgent>();
         //navAgent.destination = wayP.position;
@@ -39,7 +39,8 @@ public class EnemyAI : MonoBehaviour
         if(Pdist <= 7.5f && Pdist >= 2f)
         {
             navAgent.destination = Player.position;
-            anim.SetBool("Attack", false);
+            anim.SetBool("Attacking", false);
+            anim.SetBool("Running", true);
         }
         if (Pdist <= 2f)
         {
@@ -48,16 +49,22 @@ public class EnemyAI : MonoBehaviour
         if(Pdist >= 7.5f)
         {
             navAgent.destination = target;
+            anim.SetBool("Walking", true);
+            anim.SetBool("Running", false);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+        /*if (anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
         {
             DagCol.enabled = true;
         }
         else
         {
             DagCol.enabled = false;
-        }
+        }*/
     }
     private void UpdateDestination()
     {
@@ -76,7 +83,9 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         navAgent.destination = transform.position;
-        anim.SetBool("Attack", true);
+        anim.SetBool("Attacking", true);
+        anim.SetBool("Running", false);
+
     }
 
 
