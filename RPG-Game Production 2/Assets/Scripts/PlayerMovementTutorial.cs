@@ -154,7 +154,13 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         if (Input.GetKeyDown(attackKey))
         {
-            Attack();
+            swordCollider.enabled = true;
+            animator.SetBool("Attacking", true);
+        }
+        else
+        {
+            swordCollider.enabled = false;
+            animator.SetBool("Attacking", false);
         }
         if (grounded)
         {

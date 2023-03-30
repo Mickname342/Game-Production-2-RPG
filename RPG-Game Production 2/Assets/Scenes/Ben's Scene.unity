@@ -1105,6 +1105,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311286515}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &470905254 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1012798217230875954, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+  m_PrefabInstance: {fileID: 6869843721899726125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &513376887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1508,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599852904}
   m_CullTransparentMesh: 1
+--- !u!65 &617338979 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8702980965505883040, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+  m_PrefabInstance: {fileID: 6869843721899726125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &635092572
 GameObject:
   m_ObjectHideFlags: 0
@@ -7680,9 +7690,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4458140206276446614, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+      propertyPath: swordCollider
+      value: 
+      objectReference: {fileID: 617338979}
+    - target: {fileID: 4458140206276446614, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+      propertyPath: shieldCollider
+      value: 
+      objectReference: {fileID: 470905254}
     - target: {fileID: 4458140206276446620, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725527273392443642, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+      propertyPath: m_TagString
+      value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954947593990891017, guid: a58f6a3355c3d1b419ede5256dd64535, type: 3}
+      propertyPath: m_TagString
+      value: PlayerModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -7721,11 +7747,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7476101867202204882, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001765986
+      value: -0.000000017659854
       objectReference: {fileID: 0}
     - target: {fileID: 7476101867202204882, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000016409466
+      value: 0.0000000016409462
       objectReference: {fileID: 0}
     - target: {fileID: 7476101867494072147, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.x
