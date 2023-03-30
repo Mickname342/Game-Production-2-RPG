@@ -124,7 +124,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //Change animation based on input
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical") || Input.GetButton("W"))
         {
             animator.SetBool("IsMoving", true);
         }
