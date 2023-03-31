@@ -80,7 +80,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(GameObject.FindWithTag("PlayerModel").transform.position, Vector3.down, 0.15f, whatIsGround);
+        //grounded = Physics.Raycast(GameObject.FindWithTag("PlayerModel").transform.position, Vector3.down, 0.15f, whatIsGround);
         ApproachingGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
         Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
         //Control animations depending on if grounded
@@ -152,16 +152,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
         else { animator.SetBool("ApproachingGround", false); }
 
-        if (Input.GetKeyDown(attackKey))
-        {
-            swordCollider.enabled = true;
-            animator.SetBool("Attacking", true);
-        }
-        else
-        {
-            swordCollider.enabled = false;
-            animator.SetBool("Attacking", false);
-        }
+        
         if (grounded)
         {
             if (Input.GetKey(blockKey))
@@ -282,5 +273,21 @@ public class PlayerMovementTutorial : MonoBehaviour
         animator.SetBool("IsBlocking", true);
         animator.SetBool("BlockPressed", true);
         animator.SetLayerWeight(1, 0.7f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ground"))
+        {
+            grounded = false;
+        }
     }
 }

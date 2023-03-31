@@ -1584,6 +1584,8 @@ GameObject:
   - component: {fileID: 4458140206276446609}
   - component: {fileID: 4458140206276446608}
   - component: {fileID: 4458140206276446611}
+  - component: {fileID: 8713053773608798126}
+  - component: {fileID: 4483029909177777464}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1713,6 +1715,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box: {fileID: 4458140206727238333}
   timer: 5
+--- !u!114 &8713053773608798126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458140206276446620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac8178c26661c94ab0df3dbf4e7360a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &4483029909177777464
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458140206276446620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 1.12}
 --- !u!1 &4458140206590777346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3987,6 +4014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: paintbrush
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5917c93177328fc469ac7ef7a4972dc9, type: 3}
+      propertyPath: m_TagString
+      value: sword
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5917c93177328fc469ac7ef7a4972dc9, type: 3}
@@ -4084,6 +4115,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 198a960eeaf74ba4eaa371f297ed6ccb, type: 3}
       propertyPath: m_Name
       value: palette_shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 198a960eeaf74ba4eaa371f297ed6ccb, type: 3}
+      propertyPath: m_TagString
+      value: Shield
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

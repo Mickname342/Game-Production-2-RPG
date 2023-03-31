@@ -29,6 +29,8 @@ public class EnemyHit : MonoBehaviour
         if(EnemyHealth <= 0)
         {
             Debug.Log("dead");
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
+            transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z);
             GetComponent<Animator>().enabled = false;
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<EnemyAI>().enabled = false;
@@ -37,6 +39,7 @@ public class EnemyHit : MonoBehaviour
             knife.AddComponent<Rigidbody>();
             knife.transform.SetParent(null);
             GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0,3,0), transform.rotation);
+            
         }
     }
 

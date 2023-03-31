@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject knife;
     public float Pdist;
 
-    public Transform Player;
+    private Transform Player;
     public Transform[] wayP;
 
     int wayIndex;
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     private Collider DagCol;
     void Start()
     {
+        Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
         //get the component reference
         navAgent = GetComponent<NavMeshAgent>();
@@ -82,6 +83,7 @@ public class EnemyAI : MonoBehaviour
 
     void Attack()
     {
+       // transform.LookAt(Player);
         navAgent.destination = transform.position;
         anim.SetBool("Attacking", true);
         anim.SetBool("Running", false);
