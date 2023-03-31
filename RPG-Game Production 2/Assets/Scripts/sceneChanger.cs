@@ -9,7 +9,7 @@ public class sceneChanger : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     //    audio.Play();
     }
 

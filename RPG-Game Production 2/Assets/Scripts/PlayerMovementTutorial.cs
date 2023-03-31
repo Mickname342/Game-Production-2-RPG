@@ -48,7 +48,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private bool JumpPressed = false;
     private bool IsFalling = false;
-    private bool ApproachingGround = false;
+    public bool ApproachingGround = false;
     private float blockTimer = 0f;
 
     [Header("enemy look at")]
@@ -81,13 +81,13 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         // ground check
         //grounded = Physics.Raycast(GameObject.FindWithTag("PlayerModel").transform.position, Vector3.down, 0.15f, whatIsGround);
-        ApproachingGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
+            ApproachingGround = Physics.Raycast(orientation.position, Vector3.down, 3f, whatIsGround);
         Debug.DrawRay(transform.position, Vector3.down, Color.cyan);
         //Control animations depending on if grounded
-        if (grounded)
+        /*if (grounded)
         {
             animator.SetBool("IsGrounded", true);
-        } else { animator.SetBool("IsGrounded", false); }
+        } else { animator.SetBool("IsGrounded", false); }*/
 
         if (Input.GetKeyDown("q"))
         {
@@ -146,11 +146,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
         else { animator.SetBool("IsFalling", false); }
 
-        if (ApproachingGround)
-        {
-            animator.SetBool("ApproachingGround", true);
-        }
-        else { animator.SetBool("ApproachingGround", false); }
+        
 
         
         if (grounded)
@@ -275,19 +271,21 @@ public class PlayerMovementTutorial : MonoBehaviour
         animator.SetLayerWeight(1, 0.7f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("ground"))
+        if (other.CompareTag("Ground"))
         {
             grounded = true;
+            animator.SetBool("IsGrounded", true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("ground"))
+        if (other.CompareTag("Ground"))
         {
             grounded = false;
+            animator.SetBool("IsGrounded", false);
         }
     }
 }

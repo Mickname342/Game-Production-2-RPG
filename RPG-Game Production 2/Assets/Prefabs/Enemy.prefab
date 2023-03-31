@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 1679142503944199126}
   - component: {fileID: 1679142503944199127}
   - component: {fileID: 1679142503944199112}
+  - component: {fileID: 6703460927211746945}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -535,7 +536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 0}
   Pdist: 0
-  Player: {fileID: 0}
   wayP:
   - {fileID: 0}
   - {fileID: 0}
@@ -556,6 +556,19 @@ MonoBehaviour:
   swordHit: 2
   coolDown: 0
   enemyDrop: {fileID: 5609689709682346719, guid: 8cb4dd0ef2c129f40a6485b085ffacb8, type: 3}
+--- !u!65 &6703460927211746945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985219801475147780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.25, z: 1}
+  m_Center: {x: 0, y: 2.15, z: 0}
 --- !u!1 &2001689194310089498
 GameObject:
   m_ObjectHideFlags: 0

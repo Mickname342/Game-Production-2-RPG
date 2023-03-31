@@ -22,8 +22,14 @@ public class PlayerAnimations : MonoBehaviour
         }
         else
         {
-            playerScript.swordCollider.enabled = false;
+            
             animator.SetBool("Attacking", false);
         }
+
+        if (playerScript.ApproachingGround && !playerScript.grounded)
+        {
+            animator.SetBool("ApproachingGround", true);
+        }
+        if (playerScript.grounded) { animator.SetBool("ApproachingGround", false); }
     }
 }
