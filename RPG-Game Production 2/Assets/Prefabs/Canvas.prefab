@@ -248,7 +248,7 @@ RectTransform:
   - {fileID: 5186667105446015203}
   - {fileID: 5186667105332400518}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -887,7 +887,6 @@ RectTransform:
   - {fileID: 5186667105959680782}
   - {fileID: 5186667105155738893}
   - {fileID: 5186667105553510116}
-  - {fileID: 5186667106389436614}
   - {fileID: 5186667107028490871}
   m_Father: {fileID: 5186667105220940531}
   m_RootOrder: -1
@@ -1288,7 +1287,7 @@ GameObject:
   - component: {fileID: 5186667105553510116}
   - component: {fileID: 5186667105553510117}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Volume slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1309,6 +1308,7 @@ RectTransform:
   - {fileID: 5186667106592632180}
   - {fileID: 5186667107022505039}
   - {fileID: 5186667106229094335}
+  - {fileID: 5186667106389436614}
   m_Father: {fileID: 5186667105446015203}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3763,7 +3763,7 @@ GameObject:
   - component: {fileID: 5186667106389436612}
   - component: {fileID: 5186667106389436615}
   m_Layer: 5
-  m_Name: Volume
+  m_Name: Volume text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3776,17 +3776,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5186667106389436617}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1364815, y: 1.8508894, z: 1.8508894}
+  m_LocalScale: {x: 0.79731363, y: 0.6907335, z: 0.6907335}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5186667105446015203}
+  m_Father: {fileID: 5186667105553510116}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 239, y: -218}
+  m_AnchoredPosition: {x: 33.96028, y: -23.137772}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5186667106389436612
@@ -3817,7 +3817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volume
+  m_text: Music volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -722,11 +722,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7476101867202204882, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017659858
+      value: -0.000000017659856
       objectReference: {fileID: 0}
     - target: {fileID: 7476101867202204882, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000016409465
+      value: 0.0000000016409463
       objectReference: {fileID: 0}
     - target: {fileID: 7476101867494072147, guid: 5ac9b8e3ead344e4ebc88f0a487ec3ec, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1581,6 +1581,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5186667105446015202, guid: 452e5be0e3ec8c04db124c0828b02cf1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186667105477107635, guid: 452e5be0e3ec8c04db124c0828b02cf1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5186667106366137855, guid: 452e5be0e3ec8c04db124c0828b02cf1, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1589,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1313515073}
+    - target: {fileID: 5186667106875864022, guid: 452e5be0e3ec8c04db124c0828b02cf1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 452e5be0e3ec8c04db124c0828b02cf1, type: 3}
