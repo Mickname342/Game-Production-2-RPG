@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyPaintPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
     {

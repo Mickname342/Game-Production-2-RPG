@@ -38,7 +38,7 @@ public class EnemyHit : MonoBehaviour
             knife.AddComponent<BoxCollider>();
             knife.AddComponent<Rigidbody>();
             knife.transform.SetParent(null);
-            GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0,3,0), transform.rotation);
+            GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0,0,3), transform.rotation);
             
         }
     }
