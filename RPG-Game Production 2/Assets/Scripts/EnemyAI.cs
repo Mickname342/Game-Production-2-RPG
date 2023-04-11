@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navAgent;
     public GameObject knife;
     public float Pdist;
+    private float attackCoolDown;
+    public float attackCoolDownFull;
 
     private Transform Player;
     public Transform[] wayP;
@@ -30,6 +32,11 @@ public class EnemyAI : MonoBehaviour
     }
     void Update()
     {
+        if(attackCoolDown >= 0)
+        {
+            attackCoolDown -= Time.deltaTime;
+        }
+
         if(Vector3.Distance(transform.position, target) < 1f)
         {
             IterateWaypointIndex();
@@ -85,8 +92,19 @@ public class EnemyAI : MonoBehaviour
     {
        // transform.LookAt(Player);
         navAgent.destination = transform.position;
-        anim.SetBool("Attacking", true);
+        anim.SetBool("AttackIdle", true);
         anim.SetBool("Running", false);
+        if(attackCoolDown <= 0)
+        {
+            anim.SetBool("AttackIdle", false);
+            anim.SetBool("Attacking", true);
+            attackCoolDown = attackCoolDownFull;
+        }
+        else if (attackCoolDown >= 0)
+        {
+            anim.SetBool("Attacking", false);
+            anim.SetBool("AttackIdle", true);
+        }
 
     }
 
