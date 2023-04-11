@@ -8,10 +8,10 @@ public class NEWhealth : MonoBehaviour
     public GameObject splat1;
     public GameObject splat2;
     public GameObject splat3;
-    public GameObject splat4;
-    public GameObject splat5;
+ //   public GameObject splat4;
+ ///   public GameObject splat5;
 
-    int health = 5;
+    int health = 3;
  //   public float bounce = 5f;
 
     // Update is called once per frame
@@ -26,8 +26,8 @@ public class NEWhealth : MonoBehaviour
                     splat1.gameObject.SetActive(false);
                     splat2.gameObject.SetActive(false);
                     splat3.gameObject.SetActive(false);
-                    splat4.gameObject.SetActive(false);
-                    splat5.gameObject.SetActive(false);
+                   // splat4.gameObject.SetActive(false);
+                 //   splat5.gameObject.SetActive(false);
                     break;
                 }
 
@@ -36,8 +36,8 @@ public class NEWhealth : MonoBehaviour
                     splat1.gameObject.SetActive(true);
                     splat2.gameObject.SetActive(false);
                     splat3.gameObject.SetActive(false);
-                    splat4.gameObject.SetActive(false);
-                    splat5.gameObject.SetActive(false);
+                 //   splat4.gameObject.SetActive(false);
+                 //   splat5.gameObject.SetActive(false);
                     break;
                 }
 
@@ -46,8 +46,8 @@ public class NEWhealth : MonoBehaviour
                     splat1.gameObject.SetActive(true);
                     splat2.gameObject.SetActive(true);
                     splat3.gameObject.SetActive(false);
-                    splat4.gameObject.SetActive(false);
-                    splat5.gameObject.SetActive(false);
+                //    splat4.gameObject.SetActive(false);
+                //    splat5.gameObject.SetActive(false);
                     break;
                 }
 
@@ -56,11 +56,11 @@ public class NEWhealth : MonoBehaviour
                     splat1.gameObject.SetActive(true);
                     splat2.gameObject.SetActive(true);
                     splat3.gameObject.SetActive(true);
-                    splat4.gameObject.SetActive(false);
-                    splat5.gameObject.SetActive(false);
+                //    splat4.gameObject.SetActive(false);
+                //    splat5.gameObject.SetActive(false);
                     break;
                 }
-
+                /*
             case 4:
                 {
                     splat1.gameObject.SetActive(true);
@@ -80,6 +80,7 @@ public class NEWhealth : MonoBehaviour
                     splat5.gameObject.SetActive(true);
                     break;
                 }
+                */
         }
     }
 
@@ -98,7 +99,7 @@ public class NEWhealth : MonoBehaviour
             Debug.Log("YOU'RE DEAD");
         }
 
-        if (health >= 5)
+        if (health >= 3)
         {
             Debug.Log("FULL HEALTH");
         }
