@@ -12,21 +12,26 @@ public class EnemyHit : MonoBehaviour
     private GameObject knife;
     public GameObject enemyDrop;
 
+    private EnemyScript enemyScript;
+    private float multiplierDamage;
+
     // Start is called before the first frame update
     void Start()
     {
         knife = GameObject.FindWithTag("Dagger");
+        enemyScript = GetComponent<EnemyScript>();
+        multiplierDamage = swordHit * 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(coolDown> 0)
+        if (coolDown > 0)
         {
             coolDown -= Time.deltaTime;
         }
 
-        if(EnemyHealth <= 0)
+        if (EnemyHealth <= 0)
         {
             Debug.Log("dead");
             transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 90);
@@ -38,7 +43,12 @@ public class EnemyHit : MonoBehaviour
             knife.AddComponent<BoxCollider>();
             knife.AddComponent<Rigidbody>();
             knife.transform.SetParent(null);
-            GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0,0,3), transform.rotation);
+            GameObject droppedItem = Instantiate(enemyDrop, transform.position + new Vector3(0, 0, 3), transform.rotation);
+
+        }
+
+        if (enemyScript.hit)
+        {
             
         }
     }
@@ -48,8 +58,17 @@ public class EnemyHit : MonoBehaviour
         if (other.gameObject.CompareTag("sword") && coolDown <= 0 && EnemyHealth > 0)
         {
             Debug.Log("Hit");
-            EnemyHealth -= swordHit;
+            if (!enemyScript.hit)
+            {
+                EnemyHealth -= swordHit;
+            }
+            else
+            {
+                EnemyHealth -= multiplierDamage;
+            }
             coolDown += 1.0f;
         }
     }
+
+    
 }

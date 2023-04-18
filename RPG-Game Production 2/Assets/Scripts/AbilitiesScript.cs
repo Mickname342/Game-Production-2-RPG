@@ -8,7 +8,7 @@ public class AbilitiesScript : MonoBehaviour
     PlayerMovementTutorial playerMovement;
     public BoxCollider box;
     private bool CanUse = true;
-    [SerializeField] private float timer = 5f;
+    [SerializeField] private float timer = 10f;
     private float time;
     private bool Spray;
     void Start()
