@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectInteract : MonoBehaviour
 {
-    public GameObject ClueUI;
+    //public GameObject ClueUI;
     public GameObject InteractUI;
     private bool UIActive = false;
 
@@ -39,15 +39,16 @@ public class ObjectInteract : MonoBehaviour
             InteractUI.SetActive(true);
             if (Input.GetKeyDown(PlayerScript.interactKey))
             {
-                UIActive = !UIActive;
-                if (UIActive)
-                {
-                    ClueUI.SetActive(true);
-                }
-                else
-                {
-                    ClueUI.SetActive(false);
-                }
+                /* UIActive = !UIActive;
+                 if (UIActive)
+                 {
+                     ClueUI.SetActive(true);
+                 }
+                 else
+                 {
+                     ClueUI.SetActive(false);
+                 } */
+                itemHit.GetComponent<itemPickUp>().PickUp();
             }
         }
         if (!ray && itemHit != null)
@@ -55,7 +56,7 @@ public class ObjectInteract : MonoBehaviour
             if (UIActive)
             {
                 UIActive = !UIActive;
-                ClueUI.SetActive(false);
+                //ClueUI.SetActive(false);
             }
             InteractUI.SetActive(false);
             itemHit.GetComponent<Outline>().enabled = false;
@@ -66,7 +67,7 @@ public class ObjectInteract : MonoBehaviour
             if (UIActive)
             {
                 UIActive = !UIActive;
-                ClueUI.SetActive(false);
+                //ClueUI.SetActive(false);
             }
             InteractUI.SetActive(false);
             StopOutline();
