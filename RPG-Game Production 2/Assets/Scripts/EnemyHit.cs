@@ -58,15 +58,16 @@ public class EnemyHit : MonoBehaviour
         if (other.gameObject.CompareTag("sword") && coolDown <= 0 && EnemyHealth > 0)
         {
             Debug.Log("Hit");
-            if (!enemyScript.hit)
-            {
+            //if (!enemyScript.hit)
+            //{
                 EnemyHealth -= swordHit;
-            }
-            else
-            {
-                EnemyHealth -= multiplierDamage;
-            }
-            coolDown += 1.0f;
+            print("I have [" + EnemyHealth + "] HP");
+            //}
+            //else
+            //{
+                //EnemyHealth -= multiplierDamage;
+            //}
+            //coolDown += 1.0f;
         }
     }
 
