@@ -51,10 +51,10 @@ public class PlayerMovementTutorial : MonoBehaviour
     public bool ApproachingGround = false;
     private float blockTimer = 0f;
 
-    [Header("enemy look at")]
+    /*[Header("enemy look at")]
     public Transform enemy;
     public Transform body;
-    public bool lookingAt;
+    public bool lookingAt;*/
 
     private void Start()
     {
@@ -89,12 +89,12 @@ public class PlayerMovementTutorial : MonoBehaviour
             animator.SetBool("IsGrounded", true);
         } else { animator.SetBool("IsGrounded", false); }*/
 
-        if (Input.GetKeyDown("q"))
+       /* if (Input.GetKeyDown("q"))
         {
             lookingAt = !lookingAt;
-        }
+        }*/
 
-        LookAt();
+        //LookAt();
         MyInput();
         SpeedControl();
 
@@ -245,7 +245,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         readyToJump = true;
     }
 
-    private void LookAt()
+    /*private void LookAt()
     {
         if(lookingAt == true)
         {
@@ -255,7 +255,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
 
         }
-    }
+    }*/
 
     private void Attack()
     {

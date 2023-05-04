@@ -37,14 +37,14 @@ public class EnemyAI : MonoBehaviour
             attackCoolDown -= Time.deltaTime;
         }
 
-        if(Vector3.Distance(transform.position, target) < 1f)
+        if(Vector3.Distance(transform.position, target) < 2f)
         {
             IterateWaypointIndex();
             UpdateDestination();
         }
 
         Pdist = Vector3.Distance(transform.position, Player.position);
-        if(Pdist <= 7.5f && Pdist >= 2f)
+        if(Pdist <= 10f && Pdist >= 2f)
         {
             navAgent.destination = Player.position;
             anim.SetBool("Attacking", false);
@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
         {
             Attack();
         }
-        if(Pdist >= 7.5f)
+        if(Pdist >= 10f)
         {
             navAgent.destination = target;
             anim.SetBool("Walking", true);
