@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Elunga's Scene.unity
     guid: b62c0ac60cf827d4f928e491aa5c3d28
+  - enabled: 1
+    path: Assets/Scenes/Amelia's scenes/endScreen Scene.unity
+    guid: 844933ba91bf7624b98b0cb5e55b3b54
   m_configObjects: {}
