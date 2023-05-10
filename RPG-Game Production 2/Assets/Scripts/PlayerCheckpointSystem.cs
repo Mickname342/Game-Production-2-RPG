@@ -21,10 +21,14 @@ public class PlayerCheckpointSystem : MonoBehaviour
         
     }
 
+    public void SetStartPosition()
+    {
+        currentCheckpoint = startPostition;
+    }
+
     public void SetChecpoint1()
     {
         currentCheckpoint = checpoint1;
-        print("something");
     }
 
     public void SetChecpoint2()
