@@ -1,5 +1,5 @@
 # Painter warrior
-Painter warrior is a third person game with Souls-Like elemnts. The player is controlled with WASD and the camera with the mouse. For more information check the [PlayerMovementTutorial script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/PlayerMovementTutorial.cs)
+Painter warrior is a third person game with Souls-Like elemnts. The player is controlled with WASD and the camera with the mouse. For more information check the [PlayerMovementTutorial script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/PlayerMovementTutorial.cs) and the [ThirdPersonCam script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/ThirdPersonCam.cs)
 
 ![Third_person](https://github.com/Mickname342/Painter_Warrior/blob/main/Images/Third%20person_Small.png)
 
