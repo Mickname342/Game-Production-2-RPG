@@ -7,7 +7,7 @@ The player will fight bandits with a big paintbrush used like a sword and a pall
 
 ![Combat](https://github.com/Mickname342/Painter_Warrior/blob/main/Images/Combat_Small.PNG)
 
-There are collectables through the map that the player can pick up and they will show in a collectables menu. For more information check the [ObjectInteract script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/ObjectInteract.cs) and the [InventoryManager script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/InventoryManager.cs)
+There are collectables through the map that the player can pick up and they will show in a collectables menu. For more information check the [ObjectInteract script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/ObjectInteract.cs), the [InventoryManager script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/InventoryManager.cs) and the [inventoryItemController script](https://github.com/Mickname342/Painter_Warrior/blob/main/RPG-Game%20Production%202/Assets/Scripts/inventoryItemController.cs)
 
 ![Collectable_Small](https://github.com/Mickname342/Painter_Warrior/blob/main/Images/Collectables_Small.png) ![Inventory](https://github.com/Mickname342/Painter_Warrior/blob/main/Images/Collectables%20Menu.PNG)
  
